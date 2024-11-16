@@ -19,7 +19,7 @@ export function ProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/cars/${id}`, {
+        const response = await fetch(`http://3.80.103.167/cars/${id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -48,6 +48,7 @@ export function ProductPage() {
       // Append product details
       formData.append('title', product.title);
       formData.append('description', product.description);
+      formData.append('tags',product.tags);
   
       // Append all images (old + new), ensuring max 10
       const allImages = images.slice(0, 10); // Ensure max 10 images
@@ -64,7 +65,7 @@ export function ProductPage() {
         }
       }
   
-      const response = await fetch(`http://127.0.0.1:8000/cars/${id}`, {
+      const response = await fetch(`http://3.80.103.167/cars/${id}`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -92,7 +93,7 @@ export function ProductPage() {
   const handleDelete = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://127.0.0.1:8000/cars/${id}`, {
+      const response = await fetch(`http://3.80.103.167/cars/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -149,6 +150,15 @@ export function ProductPage() {
               id="description"
               value={product.description || ''}
               onChange={(e) => setProduct({ ...product, description: e.target.value })}
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="tags">Tags</Label>
+            <Textarea
+              id="tags"
+              value={product.tags || ''}
+              onChange={(e) => setProduct({ ...product, tags: e.target.value })}
               required
             />
           </div>
@@ -232,7 +242,7 @@ export function ProductPage() {
           <h3 className="text-2xl font-semibold">{product.title}</h3>
           <p className="text-gray-600">{product.description}</p>
           <div className="flex space-x-4">
-            <Button onClick={() => setIsEditing(true)}>Edit</Button>
+            <Button vvariant="outline" onClick={() => setIsEditing(true)}>Edit</Button>
             <Button variant="destructive" onClick={handleDelete} disabled={isLoading}>
               {isLoading ? 'Deleting...' : 'Delete'}
             </Button>

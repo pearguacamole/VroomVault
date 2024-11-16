@@ -35,7 +35,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout><BlockPage /></Layout>} />
+        <Route path="/" element={<BlockPage/>} />
         <Route path="/products/new" element={<PrivateRoute><Layout><ProductCreate /></Layout></PrivateRoute>} />
         <Route path="/products" element={<PrivateRoute><Layout><ProductItem /></Layout></PrivateRoute>} />
         <Route path="/products/:id" element={<PrivateRoute><Layout><ProductPage /></Layout></PrivateRoute>} />

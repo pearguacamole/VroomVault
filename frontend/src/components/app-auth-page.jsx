@@ -21,7 +21,7 @@ export function BlockPage() {
     try {
       if (type === "signup") {
         // Signup logic
-        const response = await fetch("http://127.0.0.1:8000/signup", {
+        const response = await fetch("http://3.80.103.167/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -39,7 +39,7 @@ export function BlockPage() {
         alert("Signup successful! You can now log in.");
       } else if (type === "login") {
         // Login logic
-        const response = await fetch("http://127.0.0.1:8000/token", {
+        const response = await fetch("http://3.80.103.167/token", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({
@@ -55,10 +55,9 @@ export function BlockPage() {
 
         const { access_token } = await response.json();
         localStorage.setItem("token", access_token); // Store token for authenticated requests
-        alert("Login successful!");
-
         // Redirect to /products
         navigate("/products");
+        alert("Login successful!");
       }
     } catch (err) {
       setError(err.message);
@@ -68,6 +67,13 @@ export function BlockPage() {
   };
 
   return (
+    <div className="h-screen bg-gradient-to-br from-blue-100 to-indigo-200">
+    <header className="bg-white shadow-md">
+      <nav className="container justify-between flex mx-auto px-6 py-3">
+        <h1 className="text-4xl  font-bold text-indigo-700">VroomVault</h1>
+      </nav>
+    </header>
+    <main className="container mx-auto px-6 py-8"> 
     <div className="flex items-center justify-center min-h-[calc(100vh-200px)]">
       <div className="w-full max-w-md">
         <Tabs defaultValue="login" className="w-full">
@@ -120,6 +126,13 @@ export function BlockPage() {
         </Tabs>
       </div>
     </div>
+    </main>
+          <footer className="bg-white shadow-md w-screen absolute bottom-0 mt-12">
+            <div className="container mx-auto px-6 py-3 text-center text-gray-600">
+            VroomVault by 🍐
+            </div>
+          </footer>
+        </div>
   );
 }
 

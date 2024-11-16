@@ -14,7 +14,7 @@ export function ProductItem() {
   const fetchProducts = async () => {
     try {
         setLoading(true);
-        const response = await fetch('http://127.0.0.1:8000/cars', {
+        const response = await fetch('http://3.80.103.167/cars', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
@@ -36,7 +36,7 @@ export function ProductItem() {
   // Filtered products based on search term
   const fetchSearchResults = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/cars/search?keyword=${searchTerm}`, {
+      const response = await fetch(`http://3.80.103.167/cars/search?keyword=${searchTerm}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -78,7 +78,7 @@ export function ProductItem() {
         onChange={(e) => setSearchTerm(e.target.value)}
         className="max-w-md"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {products.map((product) => (
           <Card key={product.id} className="overflow-hidden">
             <img

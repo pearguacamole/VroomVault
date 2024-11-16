@@ -47,7 +47,7 @@ export function ProductCreate() {
       });
 
       const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
-      const response = await axios.post("http://127.0.0.1:8000/cars", formData, {
+      const response = await axios.post("http://3.80.103.167/cars", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
