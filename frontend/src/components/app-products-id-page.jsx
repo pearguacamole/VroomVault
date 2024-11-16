@@ -19,7 +19,7 @@ export function ProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://3.80.103.167/cars/${id}`, {
+        const response = await fetch(`https://kushagra.info.gf/cars/${id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -65,7 +65,7 @@ export function ProductPage() {
         }
       }
   
-      const response = await fetch(`http://3.80.103.167/cars/${id}`, {
+      const response = await fetch(`https://kushagra.info.gf/cars/${id}`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -93,7 +93,7 @@ export function ProductPage() {
   const handleDelete = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://3.80.103.167/cars/${id}`, {
+      const response = await fetch(`https://kushagra.info.gf/cars/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,

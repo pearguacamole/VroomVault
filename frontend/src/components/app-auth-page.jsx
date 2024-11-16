@@ -21,7 +21,7 @@ export function BlockPage() {
     try {
       if (type === "signup") {
         // Signup logic
-        const response = await fetch("http://3.80.103.167/signup", {
+        const response = await fetch("https://kushagra.info.gf/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -39,7 +39,7 @@ export function BlockPage() {
         alert("Signup successful! You can now log in.");
       } else if (type === "login") {
         // Login logic
-        const response = await fetch("http://3.80.103.167/token", {
+        const response = await fetch("https://kushagra.info.gf/token", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({

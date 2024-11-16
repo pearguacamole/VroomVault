@@ -14,7 +14,7 @@ export function ProductItem() {
   const fetchProducts = async () => {
     try {
         setLoading(true);
-        const response = await fetch('http://3.80.103.167/cars', {
+        const response = await fetch('https://kushagra.info.gf/cars', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
@@ -36,7 +36,7 @@ export function ProductItem() {
   // Filtered products based on search term
   const fetchSearchResults = async () => {
     try {
-      const response = await fetch(`http://3.80.103.167/cars/search?keyword=${searchTerm}`, {
+      const response = await fetch(`https://kushagra.info.gf/cars/search?keyword=${searchTerm}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
